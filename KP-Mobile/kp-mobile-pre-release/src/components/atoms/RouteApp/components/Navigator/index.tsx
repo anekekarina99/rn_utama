@@ -294,6 +294,7 @@ export const Navigator: React.FC<NavigatorProps> = () => {
         headerShown: false,
       }}>
       <Stack.Screen name={'Splash'} component={SplashScreen} />
+      <Stack.Screen name={'Splash'} component={SplashScreen} />
       <Stack.Screen name={'TestScreen'} component={TestScreen} />
       <Stack.Screen name={'ClassReportScreen'} component={ClassReportScreen} />
       <Stack.Screen
