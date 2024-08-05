@@ -1,0 +1,79 @@
+{
+  "project_info": {
+    "project_number": "1095216359444",
+    "firebase_url": "https://learning-app-5cdc6.firebaseio.com",
+    "project_id": "learning-app-5cdc6",
+    "storage_bucket": "learning-app-5cdc6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1095216359444:android:e00c290ef4d6f54e",
+        "android_client_info": {
+          "package_name": "id.extramarks.learningapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1095216359444-1dcp5glgalduvk68ku0vq9b882s0j9s3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.extramarks.learningapp",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "1095216359444-9s5ic52c798i35sthe57e9n9n09md3q9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.extramarks.learningapp",
+            "certificate_hash": "4c1de3264addb4fa9b2fc0f122e4633ead10276e"
+          }
+        },
+        {
+          "client_id": "1095216359444-ikg5krm81nvep2hpclp1am4rjt4maep3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.extramarks.learningapp",
+            "certificate_hash": "81d21b3bcadc257c50126bb08589e5c773c87607"
+          }
+        },
+        {
+          "client_id": "1095216359444-touefu5bseajvahoe5o7hor7hicio21c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.extramarks.learningapp",
+            "certificate_hash": "f6d7efbd7bc911622ee1604d58b9c943f46a6ff0"
+          }
+        },
+        {
+          "client_id": "1095216359444-hrmr8pssnua8mj72mno3thvjt76b08jk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC97AMP8rswDkXXH8WlHUMlwDtczVC2Tgg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1095216359444-hrmr8pssnua8mj72mno3thvjt76b08jk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1095216359444-hn02jjjje4jbgqu29qc9rjdhr0c96po1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.extramarks.smartstudy.in-dev"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

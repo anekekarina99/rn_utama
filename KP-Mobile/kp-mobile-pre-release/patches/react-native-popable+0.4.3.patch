@@ -1,0 +1,13 @@
+diff --git a/node_modules/react-native-popable/src/Popable.tsx b/node_modules/react-native-popable/src/Popable.tsx
+index 75f214e..d7a2360 100644
+--- a/node_modules/react-native-popable/src/Popable.tsx
++++ b/node_modules/react-native-popable/src/Popable.tsx
+@@ -243,7 +243,7 @@ const Popable = forwardRef<PopableManager, PopableProps>(function Popable(
+         ref={popoverRef}
+         {...sharedPopoverProps}
+         onLayout={handlePopoverLayout}
+-        visible={Platform.OS === 'web' ? isPopoverVisible : false}
++        visible={isPopoverVisible}
+         style={[
+           computedPosition === 'top' && styles.popoverTop,
+           computedPosition === 'bottom' && styles.popoverBottom,

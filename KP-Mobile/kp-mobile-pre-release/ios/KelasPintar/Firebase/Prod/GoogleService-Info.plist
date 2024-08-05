@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1095216359444-jhmlq7u9br8saui2ql07noee21a4r0ag.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1095216359444-jhmlq7u9br8saui2ql07noee21a4r0ag</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>1095216359444-1dcp5glgalduvk68ku0vq9b882s0j9s3.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBsaNfB63oWaRhPaW3U_q96sDChnWzUs_c</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1095216359444</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.extramarks.smartstudy.in</string>
+	<key>PROJECT_ID</key>
+	<string>learning-app-5cdc6</string>
+	<key>STORAGE_BUCKET</key>
+	<string>learning-app-5cdc6.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1095216359444:ios:d67d24662533c557bc5f01</string>
+	<key>DATABASE_URL</key>
+	<string>https://learning-app-5cdc6.firebaseio.com</string>
+</dict>
+</plist>

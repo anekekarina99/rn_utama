@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "345447040570",
+    "firebase_url": "https://kp-revamp-dev-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "kp-revamp-dev",
+    "storage_bucket": "kp-revamp-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:345447040570:android:3ef90dfee44b0f79be5703",
+        "android_client_info": {
+          "package_name": "id.extramarks.learningapp.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "345447040570-o7n9m6tkoppl80ennqsckqdehkfnieoq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.extramarks.learningapp.dev",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "345447040570-of5uemt9qa3h0g0lbd7sk40t394hts3i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgC_iT5FwCr86G8M22Ute8WbkJTSVpJio"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "345447040570-of5uemt9qa3h0g0lbd7sk40t394hts3i.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "345447040570-790a57qdu0fvfje1kh6n2doc0d7br7us.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.extramarks.smartstudy.in.dev",
+                "app_store_id": "1469195409"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

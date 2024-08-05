@@ -1,0 +1,26 @@
+diff --git a/node_modules/react-native-mathjax-html-to-text-svg/types.d.ts b/node_modules/react-native-mathjax-html-to-text-svg/types.d.ts
+new file mode 100644
+index 0000000..801228d
+--- /dev/null
++++ b/node_modules/react-native-mathjax-html-to-text-svg/types.d.ts
+@@ -0,0 +1,19 @@
++import { TextStyle, ViewStyle } from 'react-native';
++
++declare module 'react-native-mathjax-html-to-text-svg' {
++    import React from 'react';
++
++    export interface MathJaxProps {
++        fontSize?: number;
++        color?: string;
++        fontCache?: boolean;
++        textStyle?: TextStyle;
++        style?: ViewStyle;
++        scrollBorderColor?:string;
++        scrollIconColor?:string;
++        children?: React.ReactNode; // Add children prop
++    }
++
++    export const MathJaxSvg: React.FC<MathJaxProps>; // Use React.FC to define a functional component
++    export default MathJaxSvg;
++}
+\ No newline at end of file

@@ -1,0 +1,13 @@
+diff --git a/node_modules/react-native-modalbox/index.js b/node_modules/react-native-modalbox/index.js
+index 09c1806..28ff9a1 100644
+--- a/node_modules/react-native-modalbox/index.js
++++ b/node_modules/react-native-modalbox/index.js
+@@ -564,7 +564,7 @@ export default class ModalBox extends React.PureComponent {
+         this.animateOpen();
+         if (this.props.backButtonClose && Platform.OS === 'android')
+           BackHandler.addEventListener('hardwareBackPress', this.onBackPress);
+-        this.onViewLayoutCalculated = null;
++        // this.onViewLayoutCalculated = null;
+       };
+       this.setState({isAnimateOpen: true});
+     }

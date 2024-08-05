@@ -1,0 +1,128 @@
+pipeline {
+  agent {
+    label 'helpdesk-awu-agent-02'
+  }
+  environment {
+      PATH = "/opt/gradle/gradle-7.6/bin:/usr/local/lib/nodejs/node-v20.11.0-linux-x64/bin:$PATH"
+  }
+    options { disableConcurrentBuilds(abortPrevious: true) }
+    stages {
+      stage('Git-clone'){
+        steps{
+          git branch: 'development', credentialsId: 'gitlab_user_pass', url: 'https://gitlab.kplabs.id/kp/mobile/kp-mobile.git'
+        }
+      }
+      stage('check-version'){
+        steps{
+          //archiveArtifacts "generated_apk/apk/staging/release/*.apk"
+          sh "node -v"
+          sh "npm version"
+          sh "npx -v"
+          sh "gradle --version"
+        }
+      }
+      // !CHANGE THIS 
+      stage('copy-config'){
+        steps{
+          sh "cp .env-example-stag .env"
+          sh "cp .env-example-stag .env.production"
+          sh "cp .env-example-stag .env.staging"
+          // sh "cp .env-example .env.development"
+        }
+      }
+      // stage('Notification') {
+      //   steps {
+      //     sh "curl --location --request POST 'https://api.telegram.org/bot${TOKEN}/sendMessage' --form text='${TEXT_PRE_BUILD}' --form chat_id='${CHAT_ID}'"
+      //   }
+      // }
+      stage('remove-old-apk'){
+        steps{
+          //archiveArtifacts "generated_apk/apk/staging/release/*.apk"
+          sh "rm -rf /var/lib/jenkins/workspace-agent/workspace/KelasPintarRevamp/KPMobile/Development/Deploy/generated_apk"
+          sh "rm -rf /var/lib/jenkins/workspace-agent/workspace/KelasPintarRevamp/KPMobile/Development/Deploy/node_modules"
+        }
+      }
+      // !CHANGE THIS 
+      stage('build'){
+        steps{
+          sh "make install"
+          // sh "make aab" // build aab
+          sh "make apk" // build prod
+          // sh "make apk_debug" // build prod debug
+          // sh "make apk_stag" // build staging
+
+        }
+      }
+      // stage('uploads-storage'){
+      //   steps{
+      //     sh "gsutil -m rsync -r /var/lib/jenkins/workspace-agent/workspace/KelasPintarRevamp/KPMobile/Staging/Deploy/generated_apk/apk/staging/release gs://lptv2_api_staging_bucket/apk-staging/release"
+      //     sh "rm -rf /var/lib/jenkins/workspace-agent/workspace/KelasPintarRevamp/KPMobile/Staging/Deploy/generated_apk/apk/staging/release/*"
+      //   }
+      // }
+      // !CHANGE THIS 
+      stage('Publish'){
+        steps{
+          // archiveArtifacts "android/app/build/outputs/bundle/productionRelease/*.aab" //upload prod aab
+          archiveArtifacts "generated_apk/apk/production/release/*.apk" // upload prod artifacts
+          // archiveArtifacts "generated_apk/apk/production/debug/*.apk" // upload prod artifacts
+          // archiveArtifacts "generated_apk/apk/staging/release/*.apk" //upload staging artifacts
+          // archiveArtifacts "generated_apk/apk/staging/debug/*.apk" //upload staging debug artifacts
+          // archiveArtifacts "generated_apk/apk/development/release/*.apk" //upload development artifacts
+          //sh "rm -rf /var/lib/jenkins/workspace-agent/workspace/KelasPintarRevamp/KPMobile/Staging/Deploy/generated_apk/apk/staging/release/*"
+        }
+      }
+    //   stage('Build Docker image'){
+    //     steps{
+    //       sh "docker build --no-cache -t asia.gcr.io/kp-dev-348406/kp-auth:dev-${BUILD_NUMBER} -f Dockerfile ."
+    //     }
+    //   }
+    //   stage('Docker push to Container Registry'){
+    //     steps{
+    //       sh "gcloud auth configure-docker asia.gcr.io --quiet"
+    //       sh "docker push asia.gcr.io/kp-dev-348406/kp-auth:dev-${BUILD_NUMBER}"
+    //     }
+    //   }
+    //   stage('Git Clone for the kubeconfig code'){
+    //     steps {
+    //       git branch: 'master', credentialsId: 'gitlab_user_pass', url: 'https://gitlab.kplabs.id/kp/infrastructure/kube-config.git'
+    //     }
+    //   }
+    //   stage('Update GIT') {
+    //     steps{
+    //       script{
+    //         catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
+    //           withCredentials([usernamePassword(credentialsId: 'gitlab_user_pass', passwordVariable: 'git_password', usernameVariable: 'git_username')]){
+    //             sh "git config user.email '${GIT_CONFIG_EMAIL}' "
+    //             sh "git config user.name '${GIT_CONFIG_USERNAME}' "
+    //             sh "cat '${Manifest_Path}' "
+    //             sh "sed -i 's+asia.gcr.io/kp-dev-348406/kp-auth.*+asia.gcr.io/kp-dev-348406/kp-auth:dev-${BUILD_NUMBER}+g' ${Manifest_Path} "
+    //             sh "cat '${Manifest_Path}' "
+    //             sh "git add '${Manifest_Path}' "
+    //             sh "git commit -m 'Done by Jenkins Job changemanifest dev-${env.BUILD_NUMBER} kp-auth'"
+    //             sh "git push https://$git_username:'$git_password'@gitlab.kplabs.id/kp/infrastructure/kube-config.git HEAD:'${GIT_BRANCH_TO_SWITCH}'"
+    //           }
+    //         }
+    //       }
+    //     }
+    //   }
+    }
+    // post {
+    //   success {
+    //     script{
+    //       sh('curl --location --request POST https://api.telegram.org/bot${TOKEN}/sendMessage --form text=${TEXT_SUCCESS_BUILD} --form chat_id=${CHAT_ID}')
+    //     }
+    //   }
+    //   failure {
+    //     script{
+    //       //sh "curl --location --request POST 'https://api.telegram.org/bot${TOKEN}/sendMessage' --form text='${TEXT_FAILURE_BUILD}' --form chat_id='${CHAT_ID}'"
+    //       sh('curl --location --request POST https://api.telegram.org/bot${TOKEN}/sendMessage --form text=${TEXT_FAILURE_BUILD} --form chat_id=${CHAT_ID}')
+    //     }
+    //   }
+    //   aborted {
+    //     script{
+    //       //sh "curl --location --request POST 'https://api.telegram.org/bot${TOKEN}/sendMessage' --form text='${TEXT_ABORTED_BUILD}' --form chat_id='${CHAT_ID}'"
+    //       sh('curl --location --request POST https://api.telegram.org/bot${TOKEN}/sendMessage --form text=${TEXT_ABORTED_BUILD} --form chat_id=${CHAT_ID}')
+    //     }
+    //   }
+    // }
+}

@@ -1,0 +1,11 @@
+diff --git a/node_modules/react-native-skeleton-placeholder/lib/skeleton-placeholder.d.ts b/node_modules/react-native-skeleton-placeholder/lib/skeleton-placeholder.d.ts
+index a3dc594..7da79b7 100644
+--- a/node_modules/react-native-skeleton-placeholder/lib/skeleton-placeholder.d.ts
++++ b/node_modules/react-native-skeleton-placeholder/lib/skeleton-placeholder.d.ts
+@@ -43,4 +43,5 @@ declare const SkeletonPlaceholder: React.FC<SkeletonPlaceholderProps> & {
+     Item: React.FC<SkeletonPlaceholderItemProps>;
+ };
+ export default SkeletonPlaceholder;
++export {SkeletonPlaceholderItemProps,SkeletonPlaceholderProps};
+ //# sourceMappingURL=skeleton-placeholder.d.ts.map
+\ No newline at end of file

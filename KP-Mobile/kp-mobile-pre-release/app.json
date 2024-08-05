@@ -1,0 +1,7 @@
+{
+  "name": "KelasPintar",
+  "displayName": "KelasPintar",
+  "plugins": [
+    "@notifee/react-native"
+  ]
+}
