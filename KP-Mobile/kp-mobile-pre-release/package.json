@@ -96,6 +96,7 @@
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
     "react-native-linear-gradient": "^2.8.3",
     "react-native-mathjax-html-to-text-svg": "^1.0.14",
+    "react-native-modal": "^13.0.1",
     "react-native-modalbox": "^2.0.2",
     "react-native-network-logger": "^1.15.0",
     "react-native-orientation-locker": "^1.5.0",
