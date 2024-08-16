@@ -1,22 +1,22 @@
 {
-  "extends": "@tsconfig/react-native/tsconfig.json",
-  "compilerOptions": {
-    "jsx": "react-native",
-    "baseUrl": ".",
-    "esModuleInterop": true,
-    "strict": true,
-    "strictFunctionTypes": true,
-    "paths": {
-      "@assets/*": ["src/assets/*"],
-      "@components/*": ["src/components/*"],
-      "@constants/*": ["src/constant/*"],
-      "@hooks/*": ["src/hooks/*"],
-      "@services/*": ["src/services/*"],
-      "@features/*": ["src/features/*"],
-      "@helpers/*": ["src/helpers/*"],
-      "@api/*": ["src/api/*"],
-      "@redux": ["src/redux"],
-      "@zustand/*": ["src/zustand/*"]
-    }
-  }
+    "extends": "@tsconfig/react-native/tsconfig.json",
+    "compilerOptions": {
+        "jsx": "react",
+        "strict": true,
+        "baseUrl": ".",
+        "paths": {
+            "@/*": [
+                "src/*"
+            ]
+        }
+    },
+    "include": [
+        "src/**/*",
+        "index.js",
+        "App.js",
+        "index.ts",
+        "App.ts",
+        "index.tsx",
+        "App.tsx"
+    ]
 }

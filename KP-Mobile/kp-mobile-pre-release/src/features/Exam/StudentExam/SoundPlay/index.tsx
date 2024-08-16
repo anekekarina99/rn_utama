@@ -1,14 +1,21 @@
 import React from 'react';
-import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Slider from '@react-native-community/slider';
-import Colors from '@constants/colors';
-import {useSoundPlayer} from '@features/Exam/shared/hooks/SoundPlayer/useSoundPlayer';
-import {State} from 'react-native-track-player';
-import {ActivityIndicator} from 'react-native-paper';
+import Colors from './component/colors';
+//import Colors from '@constraint/colors';
+//import { useSoundPlayer } from '@features/Exam/shared/hooks/SoundPlayer/useSoundPlayer';
+import { useSoundPlayer } from './component/useSoundPlayer';
+import { State } from 'react-native-track-player';
+import { ActivityIndicator } from 'react-native-paper';
+import { styles } from './style';
 
-const SoundPlayer = ({source}: {source: string}) => {
-  const {play, pause, playback, progress, setCurrentPlayingTime} =
+interface SoundPlayerProps {
+  source: string;
+}
+
+const SoundPlayer: React.FC<SoundPlayerProps> = ({ source }) => {
+  const { play, pause, playback, progress, setCurrentPlayingTime } =
     useSoundPlayer(source);
 
   const formatTime = (seconds: number) => {
@@ -27,10 +34,8 @@ const SoundPlayer = ({source}: {source: string}) => {
   const isBuffering = playback === State.Buffering;
 
   return (
-    <View style={[styles.progressBarContainer]}>
-      <TouchableOpacity
-        onPress={isPlaying ? pause : play}
-        style={styles.playButton}>
+    <View style={styles.progressBarContainer}>
+      <TouchableOpacity onPress={isPlaying ? pause : play} style={styles.playButton}>
         {isBuffering ? (
           <ActivityIndicator size={30} color="white" />
         ) : (
@@ -62,34 +67,4 @@ const SoundPlayer = ({source}: {source: string}) => {
   );
 };
 
-const styles = StyleSheet.create({
-  fullRatio: {flex: 1},
-  progressBarContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: 16,
-    paddingHorizontal: 12,
-    borderRadius: 20,
-    backgroundColor: '#333333',
-    gap: 2,
-  },
-  progressBar: {
-    width: 200,
-    height: 20,
-    flex: 1, // Make progress bar fill remaining space
-  },
-  text: {
-    fontSize: 16,
-    color: 'white',
-  },
-  playButton: {
-    padding: 4,
-
-    borderRadius: 50,
-  },
-  slider_view: {
-    flex: 2,
-  },
-});
-
-export {SoundPlayer};
+export default SoundPlayer;

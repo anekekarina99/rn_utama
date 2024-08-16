@@ -1,8 +1,8 @@
-import React from 'react';
+/*import React from 'react';
 import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Slider from '@react-native-community/slider';
-import Colors from '@constants/colors';
+import Colors from '@constant/colors';
 import {useSoundPlayer} from '@features/Exam/shared/hooks/SoundPlayer/useSoundPlayer';
 import {State} from 'react-native-track-player';
 import {ActivityIndicator} from 'react-native-paper';
@@ -93,3 +93,4 @@ const styles = StyleSheet.create({
 });
 
 export {SoundPlayer};
+*/

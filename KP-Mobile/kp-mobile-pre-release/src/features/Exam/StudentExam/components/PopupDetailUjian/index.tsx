@@ -1,65 +1,41 @@
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import Modal from 'react-native-modal';
+import React, {useState} from 'react'; // Mengimpor hook dan library yang diperlukan
+import {View, TouchableOpacity} from 'react-native'; // Mengimpor komponen View dan TouchableOpacity dari React Native
+//import {Ionicons} from '@expo/vector-icons'; // Mengimpor Ionicons untuk penggunaan ikon
+import Modal from 'react-native-modal'; // Mengimpor komponen Modal dari library react-native-modal
+import PoppinsText from './components/PoppinsTexts'; // Mengimpor komponen kustom PoppinsText
+import {HeaderComponent} from './components/HeaderComponent'; // Mengimpor CardComponent dan HeaderComponent dari folder komponen lokal
+import {CardComponent} from './components/CardComponent';
+import {styles} from './styles'; // Mengimpor gaya dari style.tsx
 
-const App = () => {
-  const [isModalVisible, setModalVisible] = useState(false);
+export default function PopDetailUjian() {
+  // Mendefinisikan komponen fungsional utama
+  const [isModalVisible, setModalVisible] = useState(false); // Mendefinisikan state untuk visibilitas modal
 
   const toggleModal = () => {
+    // Fungsi untuk mengubah visibilitas modal
     setModalVisible(!isModalVisible);
   };
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={toggleModal}>
-        <Text style={styles.openButton}>Open Bottom Popup</Text>
+      {' '}
+      {/* Kontainer utama dengan styling */}
+      <TouchableOpacity onPress={toggleModal} style={styles.openButton}>
+        {' '}
+        {/* Tombol untuk membuka modal */}
+        <PoppinsText weight="Bold" style={styles.openButtonText}>
+          Show Modal
+        </PoppinsText>
       </TouchableOpacity>
       <Modal
         isVisible={isModalVisible}
         onBackdropPress={toggleModal}
-        onSwipeComplete={toggleModal}
-        swipeDirection="down"
-        style={styles.bottomModal}
-      >
-        <View style={styles.modalContent}>
-          <Text style={styles.modalText}>This is the bottom popup content!</Text>
-          <TouchableOpacity onPress={toggleModal}>
-            <Text style={styles.closeButton}>Close</Text>
-          </TouchableOpacity>
+        style={styles.modal}>
+        <View style={styles.modalView}>
+          <HeaderComponent /> {/* Menampilkan HeaderComponent */}
+          <CardComponent /> {/* Menampilkan CardComponent */}
         </View>
       </Modal>
     </View>
   );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  openButton: {
-    fontSize: 20,
-    color: 'blue',
-  },
-  bottomModal: {
-    justifyContent: 'flex-end',
-    margin: 0,
-  },
-  modalContent: {
-    backgroundColor: 'white',
-    padding: 16,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-  },
-  modalText: {
-    fontSize: 20,
-  },
-  closeButton: {
-    marginTop: 20,
-    fontSize: 20,
-    color: 'red',
-  },
-});
-
-export default App;
+}
